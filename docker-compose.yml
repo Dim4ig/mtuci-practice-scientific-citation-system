@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  citation-system:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      # Сохраняем базу данных на хост-машине
+      - ./data:/app/data
+    environment:
+      - PORT=8080
+    restart: unless-stopped
+    container_name: citation-system 
